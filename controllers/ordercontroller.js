@@ -29,9 +29,11 @@ exports.createOrder = (req, res) => {
 exports.updateOrder = (req, res) => {
   const id = parseInt(req.params.id);
   const record = orderRecords.find(o => o.id === id);
+  
   if (!record) {
     return res.status(404).json({ error: "Order not found" });
   }
+  
   record.amount = req.body.amount;
   res.json({ message: "Order updated", record });
 };
