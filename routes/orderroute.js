@@ -4,9 +4,11 @@ const controller = require('../controllers/ordercontroller');
 
 function checkOrder(req, res, next) {
     const { customer, amount } = req.body;
+    
     if (!customer || typeof amount !== 'number') {
         return res.status(400).json({ error: "Invalid order payload" });
     }
+    
     next();
 }
 

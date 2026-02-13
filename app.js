@@ -15,10 +15,12 @@ app.use('/orders', orderRoutes);
 
 app.use((err, req, res, next) => {
     console.error("Unhandled Error:", err.message);
+    
     res.status(500).json({
         success: false,
         message: "Internal Server Error"
     });
+    
 });
 
 app.listen(3000, () => {
